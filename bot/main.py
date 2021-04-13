@@ -15,4 +15,4 @@ async def drive(ctx):
 async def horas(ctx):
 	await ctx.send("Horas de trabajo:\nhttps://docs.google.com/spreadsheets/d/13j8lxdUCMzTudtC3HGGWtAoeJ6iOhrUHH2DQiwYrKLU/edit?usp=sharing")
 
-client.run("ODMxNTU0OTE2MTgyMzkyODQ2.YHW73Q.DPwFchd_AIzrzoznpULT7CGp1lc")
+client.run("ODMxNTU0OTE2MTgyMzkyODQ2.YHW73Q.bWj7hanQ6TaygkoI8ecsM0mmkSI")
