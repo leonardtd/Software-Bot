@@ -1,7 +1,12 @@
 import discord 
 from discord.ext import commands
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 client = commands.Bot(command_prefix="?")
+token = os.getenv("DISCORD_BOT_TOKEN_SOFTWARE")
 
 @client.event
 async def on_ready():
@@ -15,4 +20,4 @@ async def drive(ctx):
 async def horas(ctx):
 	await ctx.send("Horas de trabajo:\nhttps://docs.google.com/spreadsheets/d/13j8lxdUCMzTudtC3HGGWtAoeJ6iOhrUHH2DQiwYrKLU/edit?usp=sharing")
 
-client.run("ODMxNTU0OTE2MTgyMzkyODQ2.YHW73Q.bWj7hanQ6TaygkoI8ecsM0mmkSI")
+client.run(token)
