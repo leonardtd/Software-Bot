@@ -4,12 +4,13 @@ import os
 from dotenv import load_dotenv
 #Task Management
 from tasks import *
+#FFmpeg
+from discord import FFmpegPCMAudio
 
 load_dotenv()
 
 client = commands.Bot(command_prefix="?")
 token = os.getenv("DISCORD_TOKEN")
-
 
 @client.event
 async def on_ready():
@@ -44,5 +45,45 @@ async def clear(ctx):
 async def tasks(ctx):
 	msg = listAllTasks()
 	await ctx.send(msg)
+
+#Comandos de audio
+@client.command()
+async def audio(ctx):
+
+	voice = ctx.guild.voice_client
+	if not voice and ctx.author.voice: #not connected to voice channel
+		channel = ctx.message.author.voice.channel
+		voice = await channel.connect()
+	elif not ctx.author.voice:
+		await ctx.send("Debes estar en un canal de voz!")
+
+	source = FFmpegPCMAudio('../audio_files/test.wav')
+	player = voice.play(source)
+
+@client.command()
+async def oniichan(ctx):
+
+	voice = ctx.guild.voice_client
+	if not voice and ctx.author.voice: #not connected to voice channel
+		channel = ctx.message.author.voice.channel
+		voice = await channel.connect()
+	elif not ctx.author.voice:
+		await ctx.send("Debes estar en un canal de voz!")
+
+	source = FFmpegPCMAudio('../audio_files/oniichan.wav')
+	player = voice.play(source)
+
+@client.command()
+async def cabrotu(ctx):
+
+	voice = ctx.guild.voice_client
+	if not voice and ctx.author.voice: #not connected to voice channel
+		channel = ctx.message.author.voice.channel
+		voice = await channel.connect()
+	elif not ctx.author.voice:
+		await ctx.send("Debes estar en un canal de voz!")
+
+	source = FFmpegPCMAudio('../audio_files/cabrotu.wav')
+	player = voice.play(source)
 
 client.run(token)
