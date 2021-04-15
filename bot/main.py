@@ -24,7 +24,6 @@ async def horas(ctx):
 	await ctx.send("Horas de trabajo:\nhttps://docs.google.com/spreadsheets/d/13j8lxdUCMzTudtC3HGGWtAoeJ6iOhrUHH2DQiwYrKLU/edit?usp=sharing")
 
 #Comandos para manejo de tareas tasks.py
-
 @client.command()
 async def add(ctx, *args):
 	task = createTaskSentence(args)
